@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="ru">
+    <meta name="keywords" content="ключевые слова">
+    <meta name="description" content="описание страницы">
+    <title>
+        {% block title %}
+            Blog engine
+        {% endblock %}
+    </title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+     <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Привет</h1>
+              {% block content %}
+              {% endblock %}
+            <br>
+            <p>
+                <a href="/" class="btn btn-success btn-lg">Главная страница</a>
+                <a href="/news" class="btn btn-primary btn-lg">Новости</a>
+                <a href='/contact' class="btn btn-info btn-lg">Контакты</a>
+            </p>
+
+                <br>
+            <h1>Это бутстрап!</h1>
+                <br>
+
+            <img src="{% static 'mainApp/images/footer.png' %}" class="img-thambnail">
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <h4>&copy; Все права защищены 2020</h4>
+    </div>
+
+
+</body>
+</html>

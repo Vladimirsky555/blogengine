@@ -1,0 +1,19 @@
+<div class="card">
+        <div class="card-header">
+            {{post.date_pub}}
+        </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.content|truncatewords:15 }}</p>
+<!--    <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-info">Читать</a>-->
+      <a href="{{ post.get_absolute_url }}" class="btn btn-info">Читать</a>
+  </div>
+    <div class="card-footer text-muted">
+       Тэги:
+<!--        Обращаемся ко всем ассоциированным с данным постом тегам
+      через менеджер отношений, который находится в атрибуте tags-->
+        {% for tag in post.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{tag.title}}</a>
+        {% endfor %}
+    </div>
+  </div>

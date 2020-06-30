@@ -1,0 +1,54 @@
+body {
+    font: 14px Arial, Helvetica, sans-serif; /* Рубленый шрифт текста */
+    margin: 0; /* Отступы на странице */
+   }
+   h1 {
+    font-size: 36px; /* Размер шрифта заголовка шапки */
+    margin: 0; /* Убираем отступы */
+    color: #fc6; /* Цвет текста заголовка шапки */
+   }
+   h2 {
+    margin-top: 0; /* Убираем отступ сверху */
+    color: #fc6; /* Цвет текста заголовка шапки */
+   }
+   .header {
+    background: #0080c0; /* Цвет фона шапки */
+    padding: 10px; /* Поля вокруг текста */
+   }
+   .sidebar {
+    float: right; /* Обтекание справа */
+    border: 1px solid #333; /* Рамка левого меню */
+    width: 20%; /* Ширина левой колонки */
+    padding: 5px; /* Поля внутри блока */
+    margin: 10px 10px 20px 5px; /* Значения отступа от блока */
+   }
+   .content {
+    margin: 10px 25% 20px 5px; /* Значения отступа от правого блока */
+    padding: 5px; /* Поля внутри блока */
+   }
+   .footer {
+    background: #333; /* Цвет фона подвал (футера) */
+    padding: 5px; /* Поля внутри блока */
+    color: #fff; /* Цвет текста футера */
+    clear: left; /* Отменяем действие float */
+   }
+
+/*Иконки для презентаций*/
+ul.icon3 {
+  /* список без стандартного маркера */
+  list-style-type: none;
+}
+ul.icon3 li {
+  /* отступ слева */
+  text-indent: 0px;
+}
+ul.icon3 li:before {
+  /* шрифт */
+  font-family: 'Glyphicons Halflings';
+  /* код иконки */
+  content: "\e127";
+  /* расположение блока с иконкой */
+  float: left;
+  /* ширина блока */
+  width: 25px;
+}

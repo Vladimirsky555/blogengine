@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Blog engine
+        {% endblock %}
+    </title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header"><h1>Книги объединения</h1></div>
+  <div class="sidebar">
+    <p><a href="/">Главная</a></p>
+    <p><a href="/bookslist">Книги</a></p>
+      <p><a href="/books">Тест</a></p>
+    <p><a href="/speeches">Речи</a></p>
+  </div>
+
+  <div class="content">
+      {% block content %}
+      {% endblock %}
+  </div>
+
+<div class="footer" align="center">&copy; Книги объединения</div>
+
+</div>
+
+</body>
+</html>
