@@ -5,7 +5,7 @@
     {% endblock %}
 
     {% block content %}
-       <form action="{{ post.get_delete_url }}}" method="post">
+   <form action="{% url 'tag_delete_url' slug=tag.slug %}" method="post">
             {% csrf_token %}
             <h3>Вы действительно желаете удалить этот тэг - <b>{{ tag.title }}</b>?</h3>
             <a href="{{ tag.get_absolute_url }}">Cancel</a>

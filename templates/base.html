@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
     <title>
         {% block title %}
             Blog engine
@@ -14,6 +16,7 @@
     </title>
   </head>
   <body>
+  <div class="container">
         <div class="container">
             {% include "includes/navbar.html" %}
         </div>
@@ -28,8 +31,13 @@
             </div>
         </div>
 
-        {% include "includes/footer.html" %}
+        <div class="admin-panel align-items-center">
+            <a href="/admin" class="btn btn-outline-success">Админка</a>
+            {% block admin-panel %} {% endblock %}
+        </div>
 
+        {% include "includes/footer.html" %}
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
