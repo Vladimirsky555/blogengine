@@ -27,14 +27,21 @@
             {% block content %}
                 There is no any content
            {% endblock %}
+            <p></p>
+           {% include "includes/pagination.html" %}
+
                 </div>
             </div>
         </div>
 
-        <div class="admin-panel align-items-center">
+      {% if request.user.is_authenticated and request.user.is_staff %}
+      <div class="admin-panel align-items-center">
             <a href="/admin" class="btn btn-outline-success">Админка</a>
             {% block admin-panel %} {% endblock %}
-        </div>
+      </div>
+      {% endif %}
+
+
 
         {% include "includes/footer.html" %}
 </div>

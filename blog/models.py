@@ -4,9 +4,9 @@ from django.shortcuts import reverse
 from django.utils.text import slugify
 from time import time
 
-def get_slug(s):
-    new_slug = slugify(s, allow_unicode = True)
-    return new_slug + '-' + str(int(time()))
+# def get_slug(s):
+#     new_slug = slugify(s, allow_unicode = True)
+#     return new_slug + '-' + str(int(time()))
 
 class Post(models.Model):
     title = models.CharField(max_length = 150, db_index = True) #Для быстрого поиска
@@ -22,7 +22,8 @@ class Post(models.Model):
     #Переопределяем метод save(), чтобы добавлять slug автоматически при создании поста
     def save(self, *args, **kwargs):
         if not self.id: #Если пост не сохранён в базу, у него нет id
-            self.slug = get_slug(self.title)
+            # self.slug = get_slug(self.title)
+            self.slug = slugify(self.slug)
             super().save(*args, **kwargs) #передаю в суперкласс Model позиционные и именованные аргументы
 
 
@@ -41,6 +42,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-date_pub']
+
 
 class Tag(models.Model):
     title = models.CharField(max_length = 50)
@@ -57,3 +61,6 @@ class Tag(models.Model):
 
     def get_delete_url(self):
         return reverse('tag_delete_url', kwargs={'slug': self.slug})
+
+    class Meta:
+        ordering = ['title']

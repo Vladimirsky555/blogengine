@@ -17,12 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
-# from .views import hello
+from .views import redirect_blog
 
 # http://127.0.0.1:5000/blog/ some-title - идет в urls.py приложения bloh
 
 urlpatterns = [
+    path('', redirect_blog),
     path('admin/', admin.site.urls),
-    # path('blog/', hello) - роутинг по конкретной функции в файле .views
     path('blog/', include('blog.urls')) #передаём путь в другое приложение
 ]

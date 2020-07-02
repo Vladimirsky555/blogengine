@@ -10,11 +10,11 @@
 <!--    |title - заглавная буква-->
     <h1 class="mt-5">Посты с "{{ tag.title|title }} тегом:"</h1>
 
-    <a href="{{ tag.get_update_url }}" class="btn btn-info btn-md" tabindex="-1" role="button" aria-disabled="true">
-        Редактировать тэг</a>
-     <a href="{% url 'tag_delete_url' slug=tag.slug %}" class="btn btn-danger btn-md" tabindex="-1" role="button" aria-disabled="true">
-        Удалить тэг</a>
-       <br><br>
+<!--    <a href="{{ tag.get_update_url }}" class="btn btn-info btn-md" tabindex="-1" role="button" aria-disabled="true">-->
+<!--        Редактировать тэг</a>-->
+<!--     <a href="{% url 'tag_delete_url' slug=tag.slug %}" class="btn btn-danger btn-md" tabindex="-1" role="button" aria-disabled="true">-->
+<!--        Удалить тэг</a>-->
+<!--       <br><br>-->
 
     {% for post in tag.posts.all %}
         {% include 'blog/includes/post_card.html' %}
