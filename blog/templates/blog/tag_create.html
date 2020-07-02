@@ -5,6 +5,7 @@
     {% endblock %}
 
     {% block content %}
+    <h1>Форма для создания тега:</h1>
         <form action="{% url 'tag_create_url' %}" method="post">
             {% csrf_token %}
 
@@ -16,7 +17,7 @@
                     </div>
                 {% endif %}
 
-                {{ feild.label }}
+                <b>{{ field.label }}:</b>
                 {{ field }}
 
             </div>

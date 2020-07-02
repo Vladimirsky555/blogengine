@@ -6,6 +6,14 @@
 
     {% block content %}
     <h1 class="mt-5">
+
+        <a href="{{ post.get_update_url }}" class="btn btn-info btn-md" tabindex="-1" role="button" aria-disabled="true">
+        Редактировать пост</a>
+
+    <a href="{% url 'post_delete_url' slug=post.slug %}" class="btn btn-danger btn-md" tabindex="-1" role="button"
+       aria-disabled="true">Удалить пост</a>
+       <br><br>
+
         {{ post.title }}
     </h1>
     <p>

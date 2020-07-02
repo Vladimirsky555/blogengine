@@ -1,13 +1,13 @@
 {% extends 'blog/base_blog.html' %}
 
     {% block title %}
-        Post create - {{ block.super }}
+        Edit Post - {{ post.title }} - {{ block.super }}
     {% endblock %}
 
 
     {% block content %}
     <h1>Форма для создания поста:</h1>
-        <form action="{% url 'post_create_url' %}" method="post">
+        <form action="{{ post.get_update_url }}" method="post">
             {% csrf_token %}
 
             {% for field in form %}
@@ -24,6 +24,6 @@
             </div>
             {% endfor %}
 
-            <button type="submit" class="btn btn-primary">Create Post</button>
+            <button type="submit" class="btn btn-primary">Update Post</button>
         </form>
     {% endblock %}
