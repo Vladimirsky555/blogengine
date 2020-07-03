@@ -6,23 +6,29 @@ from django.views.generic import View
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from .models import Post, Tag
 from .utils import ObjectDetailMixin, ObjectCreateMixin, ObjectUpdateMixin, ObjectDeleteMixin
 from .forms import TagForm, PostForm
 
 
-
-
 def posts_list(request):
-    posts = Post.objects.all()
+    search_query = request.GET.get('search', '')
 
-    paginator = Paginator(posts, 1)
-    page_number = request.GET.get('page', 1)
+    if search_query:
+        posts = Post.objects.filter(Q(title__icontains=search_query) | Q(content__icontains=search_query))
+    else:
+        posts = Post.objects.all()
+
+    paginator = Paginator(posts, 3)
+
+    page_number = request.GET.get('page', 4)
     page = paginator.get_page(page_number)
     # return render(request, 'blog/index.html', context={'posts': posts})
     # return render(request, 'blog/index.html', context = {'posts': page.object_list})
     # return render(request, 'blog/index.html', context={'posts': page})
+
 
     is_paginated = page.has_other_pages()
 
