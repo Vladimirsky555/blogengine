@@ -4,11 +4,10 @@
         </div>
   <div class="card-body">
     <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.content|truncatewords:15 }}</p>
+    <p class="card-text">{{ post.content|truncatewords:15|striptags|safe }}</p>
 <!--    <a href="{% url 'post_detail_url' slug=post.slug %}" class="btn btn-info">Читать</a>-->
       <a href="{{ post.get_absolute_url }}" class="btn btn-info">Читать</a>
-<!--       <a href="{{ post.get_update_url }}" class="btn btn-info btn-md" tabindex="-1" role="button" aria-disabled="true">-->
-<!--        Редактировать пост</a>-->
+
   </div>
     <div class="card-footer text-muted">
        Тэги:

@@ -4,6 +4,8 @@ from django.shortcuts import reverse
 from django.utils.text import slugify
 from time import time
 
+from ckeditor_uploader.fields import RichTextUploadingField
+
 # def get_slug(s):
 #     new_slug = slugify(s, allow_unicode = True)
 #     return new_slug + '-' + str(int(time()))
@@ -12,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length = 150, db_index = True) #Для быстрого поиска
     #slug = models.SlugField(max_length = 150, unique = True) #unique = True автоматом индексируются
     slug = models.SlugField(max_length=150, blank = True, unique=True)
-    content = models.TextField(blank = True, db_index = True) #Поле может быть пустым
+    content = RichTextUploadingField(blank = True, db_index = True) #Поле может быть пустым
     # blank = True - не у всех постов могут быть теги
     # related_name = 'posts' - свойство появится у экземпляров класса Tag
     # related_name = 'post_set' - django создаёт автоматически, если бы мы не указали posts
